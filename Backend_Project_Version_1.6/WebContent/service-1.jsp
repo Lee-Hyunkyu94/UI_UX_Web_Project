@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%-- import 
+<%@ page import="spms.vo.Pat" %>
+<%@ page import="java.util.ArrayList" %>	
+	--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +26,7 @@ table {
 	overflow-y: hidden;
 	background-color: white;
 	color: gray;
+	board: 1px solid;
 }
 
 tbody {
@@ -35,12 +40,12 @@ th, td {
 </head>
 <body id="servicesPage">
 	<div class="parallax-window" data-parallax="scroll"
-		data-image-src="img/bg-06.jpg">
+		data-image-src="etc/img/bg-06.jpg">
 		<div class="container-fluid">
 			<div class="row tm-brand-row">
 				<div class="col-lg-4 col-11">
 					<div class="tm-brand-container tm-bg-white-transparent">
-						<img src="img/logo_0.png" alt="App on Mobile mockup" />
+						<img src="etc/img/logo_0.png" alt="App on Mobile mockup" />
 						<div class="tm-brand-texts">
 							<h1 class="text-uppercase tm-brand-name">D-Shelter</h1>
 							<p class="small">Give new life to puppies!!</p>
@@ -95,20 +100,38 @@ th, td {
 
 			<!-- Services header -->
 			<section class="row" id="tmServices">
-				<div class="cardbody">
-					<a href="#"><img class="card-img-top" src="../강아지.jfif" alt=""></a>
+				<div class="card col-lg-6 col-md-6 col-sm-6 mb-6">
+					<a href="#"><img class="card-img-top" src="etc/img/bg-01.jpg" alt=""></a>
 				</div>
-				<div class="cradbody">
+				<div class="card col-lg-6 col-md-6 col-sm-6 mb-6">
 					<table class="table">
 						<thead>
 							<tr>
-								<th>고유번호</th>
-								<th>이름</th>
-								<th>견종</th>
-								<th>성별</th>
-								<th>나이</th>
-								<th>병이력</th>
-								<th>발견장소</th>
+							<tr>
+							<%-- 
+							<% 
+								ArrayList<Pat> pats = (ArrayList<Pat>)request.getAttribute("pats");
+							for(Pat pat : pats){
+								
+							
+							%>
+								<th>고유번호 : <%=pat.getId() %></th>
+								<th>이름  :  <%=pat.getName() %></th>
+								<th>견종 : <%=pat.getDog_breed() %></th>
+								<th>성별 : <%=pat.getGender() %></th>
+								<th>나이 : <%=pat.getAge() %></th>
+								<th>병이력 : <%=pat.getMedical_history() %></th>
+								<th>발견장소: <%=pat.getDiscovery_place() %></th>
+							<% } %>
+							</tr>
+							--%>
+							<th>고유번호 : ${pat.id}</th>
+								<th>이름  :  ${pat.name}</th>
+								<th>견종 : ${pat.dog_breed}</th>
+								<th>성별 : ${pat.gender}</th>
+								<th>나이 : ${pat.age}</th>
+								<th>병이력 : ${pat.medical_history}</th>
+								<th>발견장소: ${pat.discovery_place}</th>
 							</tr>
 						</thead>
 					</table>
